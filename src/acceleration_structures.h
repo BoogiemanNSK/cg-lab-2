@@ -47,7 +47,7 @@ public:
 
 	virtual void BuildBVH();
 
-	virtual int LoadGeometry(std::string filename);
+	virtual int LoadGeometry(std::filesystem::path filename);
 	virtual Payload TraceRay(const Ray& ray, const unsigned int max_raytrace_depth) const;
 	virtual float TraceShadowRay(const Ray& ray, const float max_t) const;
 

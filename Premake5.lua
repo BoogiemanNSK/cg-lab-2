@@ -1,6 +1,7 @@
 workspace "Basics of ray tracing"
    configurations { "Debug", "Release" }
    language "C++"
+   cppdialect "C++17"
    architecture "x64"
    systemversion "latest"
    toolset "v142"
@@ -16,7 +17,8 @@ workspace "Basics of ray tracing"
 
    targetdir ("bin/%{prj.name}/%{cfg.longname}")
    objdir ("obj/%{prj.name}/%{cfg.longname}")
-    
+  
+   
 project "06. Ray generation"
    kind "ConsoleApp"
    includedirs { "lib/stb" }
@@ -25,7 +27,7 @@ project "06. Ray generation"
    files {"src/ray_generation.h", "src/ray_generation.cpp" }
    files {"src/ray_generation_main.cpp"}
 
---[[
+
 project "07. Moller-Trumbore algorithm"
    kind "ConsoleApp"
    includedirs { "lib/stb" }
@@ -34,6 +36,7 @@ project "07. Moller-Trumbore algorithm"
    files {"src/ray_generation.h", "src/ray_generation.cpp" }
    files {"src/mt_algorithm.h", "src/mt_algorithm.cpp"}
    files {"src/mt_algorithm_main.cpp"}
+
 
 project "08. Lighting and shadows"
    kind "ConsoleApp"
@@ -59,6 +62,7 @@ project "09. Acceleration structures"
    files {"src/acceleration_structures.h", "src/acceleration_structures.cpp"}
    files {"src/acceleration_structures_main.cpp"}
 
+--[[
 project "10. Anti-aliasing"
    kind "ConsoleApp"
    includedirs { "lib/stb" }

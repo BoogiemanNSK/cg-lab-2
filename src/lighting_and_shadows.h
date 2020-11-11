@@ -1,12 +1,17 @@
 #pragma once
 
 #include "mt_algorithm.h"
+#include <filesystem>
 
 class MaterialTriangle : public Triangle
 {
 public:
-	MaterialTriangle(Vertex a, Vertex b, Vertex c) : Triangle(a, b, c) { geo_normal = normalize(cross(ba, ca)); };
-	MaterialTriangle() { };
+	MaterialTriangle();
+	MaterialTriangle(Vertex a, Vertex b, Vertex c) : Triangle(a, b, c) {
+		geo_normal = normalize(cross(ba, ca));
+		specular_exponent = 1.f;
+		ior = 1.0f;
+	};
 	virtual ~MaterialTriangle() {};
 
 	void SetEmisive(float3 emissive) { emissive_color = emissive; };
@@ -48,7 +53,7 @@ public:
 	LightingAndShadows(short width, short height);
 	virtual ~LightingAndShadows();
 
-	virtual int LoadGeometry(std::string filename);
+	virtual int LoadGeometry(std::filesystem::path filename);
 
 	virtual void AddLight(Light* light);
 protected:
